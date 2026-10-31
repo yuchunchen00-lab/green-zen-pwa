@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QLN0GJT435"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QLN0GJT435');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>綠野仙蔬・素材圖庫館</title>
+<meta name="description" content="素食餐廳「綠野仙蔬」網站專用高解析圖片網址總覽，可離線瀏覽、一鍵複製 URL。">
+
+<!-- ===== PWA ===== -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#059669" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#064e3b" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="綠野仙蔬">
+<meta name="application-name" content="綠野仙蔬">
+
+<link rel="icon" href="icons/favicon.ico" sizes="any">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="icon" href="icons/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#059669">
+<meta name="msapplication-TileImage" content="icons/icon-144.png">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="綠野仙蔬・素材圖庫館">
+<meta property="og:description" content="素食餐廳網站專用高解析圖片網址總覽。">
+<meta property="og:image" content="icons/og-cover.png">
+
+<style>
+/* ================================================================
+   設計代幣 — 所有顏色、間距、圓角集中管理，深淺色模式共用同一組名稱
+   ================================================================ */
+:root{
+  --brand-50:#ecfdf5; --brand-100:#d1fae5; --brand-300:#6ee7b7;
+  --brand-500:#10b981; --brand-600:#059669; --brand-700:#047857;
+  --brand-800:#065f46; --brand-900:#064e3b;
+
+  --bg:#fafaf9;            /* 頁面底 */
+  --surface:#ffffff;       /* 卡片 */
+  --surface-2:#f5f5f4;     /* 次級面（骨架、chip） */
+  --surface-3:#e7e5e4;
+  --text:#1c1917;
+  --text-muted:#78716c;
+  --border:#e7e5e4;
+  --accent:var(--brand-600);
+  --accent-soft:var(--brand-50);
+  --accent-text:var(--brand-700);
+  --shadow-sm:0 1px 2px rgba(28,25,23,.06), 0 1px 3px rgba(28,25,23,.08);
+  --shadow-md:0 4px 12px rgba(28,25,23,.08), 0 2px 4px rgba(28,25,23,.04);
+  --shadow-lg:0 20px 40px -12px rgba(28,25,23,.25);
+
+  --r-sm:.625rem; --r-md:.875rem; --r-lg:1.125rem; --r-xl:1.5rem;
+  --gutter:clamp(1rem, 4vw, 2rem);
+  --maxw:84rem;
+  --header-h:clamp(3.75rem, 11vw, 5rem);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0c0a09; --surface:#1c1917; --surface-2:#292524; --surface-3:#44403c;
+    --text:#f5f5f4; --text-muted:#a8a29e; --border:#292524;
+    --accent:var(--brand-500); --accent-soft:rgba(16,185,129,.12);
+    --accent-text:var(--brand-300);
+    --shadow-sm:0 1px 2px rgba(0,0,0,.4);
+    --shadow-md:0 4px 14px rgba(0,0,0,.45);
+    --shadow-lg:0 24px 48px -12px rgba(0,0,0,.7);
+  }
+}
+
+/* ================================================================
+   基礎
+   ================================================================ */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+body{
+  margin:0;
+  min-height:100svh;
+  display:flex; flex-direction:column;
+  background:var(--bg); color:var(--text);
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",
+              -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,
+              "Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-wrap:break-word;
+}
+::selection{background:var(--brand-600); color:#fff}
+img{max-width:100%; display:block}
+button{font:inherit; color:inherit; cursor:pointer; border:0; background:none}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:4px}
+
+.wrap{width:100%; max-width:var(--maxw); margin-inline:auto; padding-inline:var(--gutter)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ================================================================
+   頁首 — 行動版壓縮為單行，桌機展開副標
+   ================================================================ */
+.site-header{
+  position:sticky; top:0; z-index:40;
+  background:color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter:saturate(180%) blur(14px);
+  -webkit-backdrop-filter:saturate(180%) blur(14px);
+  border-bottom:1px solid var(--border);
+  padding-top:env(safe-area-inset-top);
+}
+.header-inner{
+  min-height:var(--header-h);
+  display:flex; align-items:center; gap:.75rem;
+}
+.brand{display:flex; align-items:center; gap:.75rem; min-width:0; flex:1}
+.brand img{
+  /* height:auto 必要：HTML 的 width/height 屬性會被當成樣式提示，
+     只改寬度會讓圖示被拉成長條 */
+  width:clamp(2.25rem,8vw,2.75rem); height:auto; aspect-ratio:1;
+  border-radius:var(--r-sm); box-shadow:var(--shadow-sm); flex-shrink:0;
+}
+.brand-text{min-width:0}
+.brand h1{
+  margin:0; font-size:clamp(.95rem,3.4vw,1.2rem); font-weight:700;
+  letter-spacing:.02em; line-height:1.3;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.brand p{
+  margin:0; font-size:.7rem; color:var(--accent-text); font-weight:500;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+@media (max-width:420px){ .brand p{display:none} }
+
+.header-actions{display:flex; align-items:center; gap:.5rem; flex-shrink:0}
+
+/* 連線狀態點 */
+.net-badge{
+  display:inline-flex; align-items:center; gap:.4rem;
+  font-size:.7rem; font-weight:600; padding:.3rem .6rem;
+  border-radius:999px; background:var(--surface-2); color:var(--text-muted);
+  white-space:nowrap;
+}
+.net-badge .dot{width:.5rem;height:.5rem;border-radius:50%;background:var(--brand-500)}
+.net-badge[data-state="offline"]{background:#fef3c7;color:#92400e}
+.net-badge[data-state="offline"] .dot{background:#d97706}
+@media (prefers-color-scheme: dark){
+  .net-badge[data-state="offline"]{background:rgba(217,119,6,.18);color:#fcd34d}
+}
+@media (max-width:560px){ .net-badge .label{display:none} .net-badge{padding:.35rem} }
+
+/* 按鈕 */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:.45rem;
+  min-height:2.75rem; padding:.5rem .9rem; border-radius:var(--r-sm);
+  font-size:.82rem; font-weight:600; white-space:nowrap;
+  transition:background .2s var(--ease), color .2s var(--ease),
+             border-color .2s var(--ease), transform .12s var(--ease);
+}
+.btn:active{transform:scale(.97)}
+.btn svg{width:1em;height:1em;flex-shrink:0}
+.btn-primary{background:var(--accent); color:#fff; box-shadow:var(--shadow-sm)}
+.btn-primary:hover{background:var(--brand-700)}
+.btn-ghost{background:var(--surface-2); color:var(--text)}
+.btn-ghost:hover{background:var(--surface-3)}
+.btn-soft{
+  width:100%; background:var(--accent-soft); color:var(--accent-text);
+  border:1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+}
+.btn-soft:hover{background:var(--accent); color:#fff; border-color:transparent}
+#install-btn{display:none}
+#install-btn.is-ready{display:inline-flex}
+@media (max-width:560px){ #install-btn .label{display:none} #install-btn{padding:.5rem .7rem} }
+
+/* ================================================================
+   主要內容
+   ================================================================ */
+main{flex:1 0 auto; padding-block:clamp(1.5rem,5vw,2.5rem)}
+.stack{display:flex; flex-direction:column; gap:clamp(1.75rem,5vw,3rem)}
+
+/* Hero */
+.hero{
+  position:relative; overflow:hidden; isolation:isolate;
+  border-radius:var(--r-xl);
+  padding:clamp(1.5rem,5vw,2.75rem);
+  background:linear-gradient(135deg,var(--brand-800),var(--brand-900) 60%);
+  color:#fff; box-shadow:var(--shadow-md);
+}
+.hero::after{
+  content:""; position:absolute; z-index:-1;
+  right:-12%; bottom:-45%; width:min(60%,22rem); aspect-ratio:1;
+  background:url("icons/icon.svg") center/contain no-repeat;
+  opacity:.12; pointer-events:none;
+}
+.hero > * + *{margin-top:.75rem}
+.hero-tag{
+  display:inline-flex; align-items:center; gap:.4rem;
+  background:rgba(255,255,255,.14); color:var(--brand-300);
+  padding:.3rem .75rem; border-radius:999px;
+  font-size:.7rem; font-weight:700; letter-spacing:.06em;
+}
+.hero h2{margin:0; font-size:clamp(1.25rem,4.5vw,1.9rem); line-height:1.35}
+.hero p{
+  margin:0; max-width:46ch; color:var(--brand-100);
+  font-size:clamp(.85rem,2.6vw,.95rem); line-height:1.75;
+}
+.hero-meta{
+  display:flex; flex-wrap:wrap; gap:.4rem 1.25rem;
+  font-size:.72rem; color:var(--brand-300); padding-top:.5rem;
+}
+
+/* 工具列 */
+.toolbar{display:flex; flex-direction:column; gap:1rem}
+.search-field{position:relative}
+.search-field svg{
+  position:absolute; left:.9rem; top:50%; translate:0 -50%;
+  width:1.05rem; height:1.05rem; color:var(--text-muted); pointer-events:none;
+}
+.search-field input{
+  width:100%; min-height:3rem;
+  padding:.7rem 2.75rem; border-radius:var(--r-md);
+  background:var(--surface); color:var(--text);
+  border:1px solid var(--border); box-shadow:var(--shadow-sm);
+  font:inherit; font-size:.9rem;
+  transition:border-color .2s var(--ease), box-shadow .2s var(--ease);
+}
+.search-field input::placeholder{color:var(--text-muted)}
+.search-field input:focus{
+  outline:none; border-color:var(--accent);
+  box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+.search-clear{
+  position:absolute; right:.5rem; top:50%; translate:0 -50%;
+  width:2rem; height:2rem; border-radius:50%;
+  display:none; align-items:center; justify-content:center;
+  color:var(--text-muted);
+}
+.search-clear.is-visible{display:flex}
+.search-clear:hover{background:var(--surface-2)}
+
+/* 分類膠囊：窄螢幕橫向捲動 + snap，不換行擠壓 */
+.chips{
+  display:flex; gap:.5rem; overflow-x:auto; padding-bottom:.25rem;
+  scroll-snap-type:x proximity; -webkit-overflow-scrolling:touch;
+  scrollbar-width:thin;
+  margin-inline:calc(var(--gutter) * -1); padding-inline:var(--gutter);
+}
+.chips::-webkit-scrollbar{height:4px}
+.chips::-webkit-scrollbar-thumb{background:var(--surface-3); border-radius:999px}
+.chip{
+  flex:0 0 auto; scroll-snap-align:start;
+  min-height:2.5rem; padding:.45rem 1rem; border-radius:999px;
+  background:var(--surface-2); color:var(--text-muted);
+  font-size:.82rem; font-weight:600; white-space:nowrap;
+  transition:background .2s var(--ease), color .2s var(--ease);
+}
+.chip:hover{background:var(--surface-3); color:var(--text)}
+.chip[aria-pressed="true"]{
+  background:var(--accent); color:#fff; box-shadow:var(--shadow-sm);
+}
+.toolbar-foot{
+  display:flex; justify-content:space-between; align-items:center; gap:1rem;
+  font-size:.75rem; color:var(--text-muted);
+  border-bottom:1px solid var(--border); padding-bottom:1rem;
+}
+.toolbar-foot .hint{display:none}
+@media (min-width:768px){ .toolbar-foot .hint{display:block} }
+
+@media (min-width:860px){
+  .toolbar{display:grid; grid-template-columns:1fr auto; align-items:center;
+           gap:1rem 1.5rem}
+  .search-field{grid-column:1; max-width:24rem}
+  .chips{grid-column:2; margin-inline:0; padding-inline:0; overflow:visible;
+         flex-wrap:wrap; justify-content:flex-end}
+  .toolbar-foot{grid-column:1 / -1}
+}
+
+/* ================================================================
+   圖庫網格 — 自動排版：手機 1 欄、平板 2 欄、桌機 3 欄以上
+   ================================================================ */
+.grid{
+  display:grid; gap:clamp(1rem,3vw,1.75rem);
+  grid-template-columns:repeat(auto-fill, minmax(min(100%,19rem), 1fr));
+}
+.card{
+  display:flex; flex-direction:column;
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--r-lg); overflow:hidden; box-shadow:var(--shadow-sm);
+  transition:box-shadow .25s var(--ease), transform .25s var(--ease),
+             border-color .25s var(--ease);
+}
+@media (hover:hover){
+  .card:hover{box-shadow:var(--shadow-md); transform:translateY(-3px);
+              border-color:color-mix(in srgb,var(--accent) 35%,var(--border))}
+  .card:hover .thumb img{scale:1.06}
+}
+.thumb{
+  position:relative; aspect-ratio:4/3; overflow:hidden;
+  background:var(--surface-2); cursor:zoom-in; width:100%;
+}
+.thumb::after{   /* 載入中的流光骨架 */
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(100deg,transparent 20%,
+             color-mix(in srgb,var(--surface) 70%,transparent) 50%,transparent 80%);
+  background-size:220% 100%;
+  animation:shimmer 1.4s infinite linear;
+}
+.thumb.is-loaded::after,.thumb.is-error::after{display:none}
+@keyframes shimmer{from{background-position:200% 0}to{background-position:-60% 0}}
+.thumb img{
+  width:100%; height:100%; object-fit:cover;
+  opacity:0; transition:opacity .45s var(--ease), scale .5s var(--ease);
+}
+.thumb.is-loaded img{opacity:1}
+.thumb.is-error{display:grid; place-items:center; cursor:default}
+.thumb.is-error::before{
+  content:"離線中，圖片待連線後載入"; font-size:.75rem; color:var(--text-muted);
+  padding:1rem; text-align:center;
+}
+.tag{
+  position:absolute; top:.65rem; left:.65rem; z-index:1;
+  padding:.25rem .65rem; border-radius:999px;
+  font-size:.68rem; font-weight:600; color:#fff;
+  background:rgba(28,25,23,.72);
+  backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+}
+.tag[data-kind="dish"]{background:var(--brand-600)}
+.tag[data-kind="farm"]{background:rgba(41,37,36,.85)}
+.card-body{padding:1.1rem 1.1rem .75rem; flex:1}
+.card-body h3{margin:0 0 .35rem; font-size:.97rem; font-weight:700; line-height:1.45}
+.card-body p{margin:0; font-size:.78rem; color:var(--text-muted); line-height:1.65}
+.card-foot{display:flex; gap:.5rem; padding:0 1.1rem 1.1rem}
+.btn-icon{
+  flex:0 0 auto; width:2.75rem; min-height:2.75rem; border-radius:var(--r-sm);
+  display:inline-flex; align-items:center; justify-content:center;
+  background:var(--surface-2); color:var(--text-muted);
+  transition:background .2s var(--ease), color .2s var(--ease);
+}
+.btn-icon:hover{background:var(--surface-3); color:var(--text)}
+.btn-icon svg{width:1.05rem;height:1.05rem}
+
+/* 無結果 */
+.empty{
+  display:none; padding:clamp(2.5rem,10vw,4.5rem) 1rem; text-align:center;
+  border:1px dashed var(--border); border-radius:var(--r-lg);
+}
+.empty.is-visible{display:block}
+.empty svg{width:2.5rem;height:2.5rem;color:var(--text-muted);margin-inline:auto}
+.empty h3{margin:.75rem 0 .25rem; font-size:1rem}
+.empty p{margin:0 0 1.25rem; font-size:.82rem; color:var(--text-muted)}
+
+/* ================================================================
+   頁尾
+   ================================================================ */
+.site-footer{
+  background:var(--brand-900); color:var(--brand-100);
+  padding:clamp(1.75rem,6vw,2.5rem) 0;
+  padding-bottom:calc(clamp(1.75rem,6vw,2.5rem) + env(safe-area-inset-bottom));
+  text-align:center; font-size:.75rem; line-height:1.9;
+}
+.site-footer p{margin:0}
+.site-footer .dim{color:color-mix(in srgb,var(--brand-100) 55%,transparent)}
+
+/* ================================================================
+   燈箱
+   ================================================================ */
+dialog.lightbox{
+  width:min(92vw,62rem); max-width:none; max-height:90svh;
+  padding:0; border:0; border-radius:var(--r-lg);
+  background:var(--surface); color:var(--text);
+  box-shadow:var(--shadow-lg); overflow:hidden;
+}
+dialog.lightbox::backdrop{background:rgba(12,10,9,.82); backdrop-filter:blur(3px)}
+.lightbox-img{width:100%; max-height:62svh; object-fit:contain; background:var(--surface-2)}
+.lightbox-info{padding:1rem 1.25rem 1.25rem; display:flex; flex-direction:column; gap:.75rem}
+.lightbox-info h3{margin:0; font-size:1rem}
+.lightbox-url{
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:.7rem; color:var(--text-muted); word-break:break-all;
+  background:var(--surface-2); padding:.6rem .75rem; border-radius:var(--r-sm);
+  max-height:5rem; overflow:auto;
+}
+.lightbox-actions{display:flex; gap:.5rem; flex-wrap:wrap}
+.lightbox-actions .btn{flex:1 1 9rem}
+.lightbox-close{
+  position:absolute; top:.6rem; right:.6rem; z-index:2;
+  width:2.4rem; height:2.4rem; border-radius:50%;
+  display:grid; place-items:center;
+  background:rgba(28,25,23,.6); color:#fff; backdrop-filter:blur(6px);
+}
+
+/* ================================================================
+   Toast ＋ 更新提示
+   ================================================================ */
+.toast{
+  position:fixed; z-index:60;
+  left:50%; translate:-50% 0;
+  bottom:calc(1.25rem + env(safe-area-inset-bottom));
+  width:max-content; max-width:calc(100vw - 2rem);
+  display:flex; align-items:center; gap:.6rem;
+  padding:.75rem 1.1rem; border-radius:999px;
+  background:#1c1917; color:#fff; font-size:.82rem; font-weight:500;
+  box-shadow:var(--shadow-lg);
+  opacity:0; transform:translateY(1.25rem); pointer-events:none;
+  transition:opacity .28s var(--ease), transform .28s var(--ease);
+}
+.toast.is-visible{opacity:1; transform:translateY(0)}
+.toast svg{width:1.05rem;height:1.05rem;color:var(--brand-300);flex-shrink:0}
+@media (min-width:860px){ .toast{left:auto; right:1.5rem; translate:0 0} }
+
+.update-bar{
+  position:fixed; z-index:60; inset-inline:0;
+  bottom:0; padding:.85rem var(--gutter);
+  padding-bottom:calc(.85rem + env(safe-area-inset-bottom));
+  background:var(--brand-800); color:#fff;
+  display:none; align-items:center; justify-content:center; gap:1rem;
+  flex-wrap:wrap; font-size:.82rem; box-shadow:0 -6px 20px rgba(0,0,0,.2);
+}
+.update-bar.is-visible{display:flex}
+.update-bar .btn{background:#fff; color:var(--brand-800); min-height:2.25rem}
+
+/* iOS 安裝說明 */
+.ios-hint{
+  display:none; align-items:flex-start; gap:.75rem;
+  padding:.9rem 1rem; border-radius:var(--r-md);
+  background:var(--accent-soft); color:var(--accent-text);
+  border:1px solid color-mix(in srgb,var(--accent) 25%,transparent);
+  font-size:.78rem; line-height:1.7;
+}
+.ios-hint.is-visible{display:flex}
+.ios-hint svg{width:1.1rem;height:1.1rem;flex-shrink:0;margin-top:.2rem}
+.ios-hint button{margin-left:auto; color:inherit; opacity:.7; flex-shrink:0}
+
+/* 列印：只留圖與網址 */
+@media print{
+  .site-header,.toolbar,.hero,.site-footer,.toast,.update-bar,.card-foot{display:none!important}
+  .card{break-inside:avoid; box-shadow:none}
+  .grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===================== 頁首 ===================== -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="brand">
+      <img src="icons/icon-192.png" alt="" width="192" height="192">
+      <div class="brand-text">
+        <h1>綠野仙蔬・素材圖庫館</h1>
+        <p>素食餐廳網站專用高解析圖片總覽</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <span class="net-badge" id="net-badge" data-state="online" role="status">
+        <span class="dot" aria-hidden="true"></span><span class="label">已連線</span>
+      </span>
+      <button class="btn btn-primary" id="install-btn" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        <span class="label">安裝應用程式</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== 主內容 ===================== -->
+<main>
+  <div class="wrap stack">
+
+    <!-- Hero -->
+    <section class="hero">
+      <span class="hero-tag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+             stroke-linecap="round" stroke-linejoin="round" width="12" height="12" aria-hidden="true">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+        可安裝・可離線瀏覽
+      </span>
+      <h2>為您的素食網頁選用真實高品質圖片</h2>
+      <p>本頁整理了適用於「綠野仙蔬」網站各區塊（主視覺、精選菜單、品牌特色與小農故事）的高解析 Unsplash 圖庫連結，點一下即可複製 URL，直接貼進 HTML 替換預設圖。</p>
+      <div class="hero-meta">
+        <span id="stat-total">共 9 張素材</span>
+        <span>4 種用途分類</span>
+        <span>CC0 可商用授權</span>
+      </div>
+    </section>
+
+    <!-- iOS 安裝提示 -->
+    <div class="ios-hint" id="ios-hint">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 16V4"/><polyline points="8 8 12 4 16 8"/>
+        <path d="M20 14v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-5"/>
+      </svg>
+      <span>在 iPhone / iPad 上安裝：點底部的「分享」圖示，再選擇<strong>「加入主畫面」</strong>，即可像 App 一樣全螢幕開啟並離線使用。</span>
+      <button type="button" id="ios-hint-close" aria-label="關閉提示">✕</button>
+    </div>
+
+    <!-- 工具列 -->
+    <section class="toolbar" aria-label="篩選與搜尋">
+      <div class="search-field">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <label class="sr-only" for="search">搜尋素材</label>
+        <input id="search" type="search" placeholder="搜尋素材名稱或用途…"
+               autocomplete="off" enterkeyhint="search">
+        <button class="search-clear" id="search-clear" type="button" aria-label="清除搜尋">✕</button>
+      </div>
+
+      <div class="chips" id="chips" role="group" aria-label="分類篩選"></div>
+
+      <div class="toolbar-foot">
+        <span id="result-count">顯示全部 9 張</span>
+        <span class="hint">點擊圖片可放大檢視，點「複製連結」取得圖片 URL</span>
+      </div>
+    </section>
+
+    <!-- 圖庫 -->
+    <section class="grid" id="grid" aria-live="polite"></section>
+
+    <div class="empty" id="empty">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        <line x1="8" y1="11" x2="14" y2="11"/>
+      </svg>
+      <h3>找不到符合的素材</h3>
+      <p>換個關鍵字，或切換回「全部分類」看看。</p>
+      <button class="btn btn-ghost" id="reset-btn" type="button">重設篩選條件</button>
+    </div>
+
+  </div>
+</main>
+
+<!-- ===================== 頁尾 ===================== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <p>所有圖片資源引自 Unsplash 免費可商業使用授權圖庫。</p>
+    <p class="dim">&copy; 2026 綠野仙蔬 Green Zen Bistro Asset Library.</p>
+  </div>
+</footer>
+
+<!-- ===================== 燈箱 ===================== -->
+<dialog class="lightbox" id="lightbox" aria-label="圖片預覽">
+  <button class="lightbox-close" id="lightbox-close" type="button" aria-label="關閉">✕</button>
+  <img class="lightbox-img" id="lightbox-img" alt="">
+  <div class="lightbox-info">
+    <h3 id="lightbox-title"></h3>
+    <code class="lightbox-url" id="lightbox-url"></code>
+    <div class="lightbox-actions">
+      <button class="btn btn-primary" id="lightbox-copy" type="button">複製圖片連結</button>
+      <a class="btn btn-ghost" id="lightbox-open" href="#" target="_blank" rel="noopener">
+        在新分頁開啟原圖
+      </a>
+    </div>
+  </div>
+</dialog>
+
+<!-- ===================== Toast / 更新列 ===================== -->
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <polyline points="20 6 9 17 4 12"/>
+  </svg>
+  <span id="toast-msg">已複製</span>
+</div>
+
+<div class="update-bar" id="update-bar">
+  <span>有新版本可用，重新整理即可套用。</span>
+  <button class="btn" id="update-btn" type="button">立即更新</button>
+</div>
+
+<script>
+/* ==================================================================
+   1. 素材資料 — 集中管理，新增素材只需在此加一筆
+   ================================================================== */
+const CATEGORIES = [
+  { id:'all',      label:'全部分類' },
+  { id:'hero',     label:'首頁橫幅' },
+  { id:'dish',     label:'精緻蔬食菜單' },
+  { id:'farm',     label:'有機農場與食材' },
+  { id:'ambience', label:'餐廳環境與氣氛' },
+];
+
+const ASSETS = [
+  { id:'hero-salad',  title:'綠色生機生菜沙拉盤', tag:'Hero 首頁背景', kind:'hero',
+    cats:['hero'], desc:'適用於網站頂部 Hero 區塊背景或宣傳區。',
+    url:'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80' },
+
+  { id:'hero-interior', title:'質感溫木餐廳內景', tag:'Hero / 餐廳環境', kind:'hero',
+    cats:['hero','ambience'], desc:'適合展現溫馨質感用餐氣氛的滿版背景。',
+    url:'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80' },
+
+  { id:'dish-salad', title:'極光酪梨藜麥健康沙拉', tag:'沙拉類菜單', kind:'dish',
+    cats:['dish'], desc:'替代選單中的沙拉項目（極光酪梨藜麥沙拉）。',
+    url:'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80' },
+
+  { id:'dish-risotto', title:'黑松露野菇義式燉飯', tag:'主廚特餐', kind:'dish',
+    cats:['dish'], desc:'替代「黑松露野菇義式燉飯」菜單卡片圖片。',
+    url:'https://images.unsplash.com/photo-1633964913295-ceb43826e7c9?auto=format&fit=crop&w=800&q=80' },
+
+  { id:'dish-curry', title:'南洋椰香南瓜咖哩煲', tag:'主廚特餐', kind:'dish',
+    cats:['dish'], desc:'替代「南洋椰香南瓜咖哩煲」的濃郁色澤圖案。',
+    url:'https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?auto=format&fit=crop&w=800&q=80' },
+
+  { id:'dish-soup', title:'黃金栗子野菇濃湯', tag:'暖心湯品', kind:'dish',
+    cats:['dish'], desc:'替代湯品項目的濃郁金黃南瓜／栗子濃湯。',
+    url:'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=80' },
+
+  { id:'dish-matcha', title:'京都宇治抹茶生乳酪', tag:'手作甜點', kind:'dish',
+    cats:['dish'], desc:'替代純素抹茶蛋糕或精緻綠茶甜點圖片。',
+    url:'https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=800&q=80' },
+
+  { id:'farm-harvest', title:'有機農場採收時蔬', tag:'有機農場', kind:'farm',
+    cats:['farm'], desc:'用於「關於我們」區塊展示產地直送理念。',
+    url:'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80' },
+
+  { id:'farm-chef', title:'主廚精心烹調特寫', tag:'主廚職人', kind:'farm',
+    cats:['farm','ambience'], desc:'展現職人手作精神的優質圖片。',
+    url:'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80' },
+];
+
+/* ==================================================================
+   2. 小工具
+   ================================================================== */
+const $  = (sel, root = document) => root.querySelector(sel);
+const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
+
+const ICON = {
+  copy:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>',
+  ext :'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>',
+};
+
+let toastTimer;
+function toast(message){
+  const el = $('#toast');
+  $('#toast-msg').textContent = message;
+  el.classList.add('is-visible');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('is-visible'), 2600);
+}
+
+/** 先用 Clipboard API，不可用時退回 execCommand（含 iframe / http 情境） */
+async function copyText(text){
+  try{
+    if(navigator.clipboard && window.isSecureContext){
+      await navigator.clipboard.writeText(text);
+      return true;
+    }
+    throw new Error('clipboard unavailable');
+  }catch{
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly','');
+    ta.style.cssText = 'position:fixed;top:0;left:-9999px;opacity:0';
+    document.body.appendChild(ta);
+    ta.select();
+    ta.setSelectionRange(0, ta.value.length);
+    let ok = false;
+    try{ ok = document.execCommand('copy'); }catch{ ok = false; }
+    document.body.removeChild(ta);
+    return ok;
+  }
+}
+
+/* ==================================================================
+   3. 渲染
+   ================================================================== */
+const state = { category:'all', query:'' };
+
+function buildChips(){
+  $('#chips').innerHTML = CATEGORIES.map(c => `
+    <button class="chip" type="button" data-cat="${c.id}"
+            aria-pressed="${c.id === state.category}">${c.label}</button>
+  `).join('');
+}
+
+function cardHTML(item){
+  return `
+  <article class="card" data-id="${item.id}">
+    <button class="thumb" type="button" data-action="zoom" aria-label="放大檢視 ${item.title}">
+      <span class="tag" data-kind="${item.kind}">${item.tag}</span>
+      <img src="${item.url}" alt="${item.title}" loading="lazy" decoding="async" width="800" height="600">
+    </button>
+    <div class="card-body">
+      <h3>${item.title}</h3>
+      <p>${item.desc}</p>
+    </div>
+    <div class="card-foot">
+      <button class="btn btn-soft" type="button" data-action="copy">
+        ${ICON.copy}<span>複製圖片連結</span>
+      </button>
+      <a class="btn-icon" href="${item.url}" target="_blank" rel="noopener"
+         aria-label="在新分頁開啟 ${item.title} 原圖">${ICON.ext}</a>
+    </div>
+  </article>`;
+}
+
+function visibleAssets(){
+  const q = state.query.trim().toLowerCase();
+  return ASSETS.filter(item => {
+    const inCat = state.category === 'all' || item.cats.includes(state.category);
+    const inQuery = !q ||
+      (item.title + item.desc + item.tag).toLowerCase().includes(q);
+    return inCat && inQuery;
+  });
+}
+
+function render(){
+  const list = visibleAssets();
+  $('#grid').innerHTML = list.map(cardHTML).join('');
+  $('#empty').classList.toggle('is-visible', list.length === 0);
+
+  const catLabel = CATEGORIES.find(c => c.id === state.category)?.label ?? '';
+  $('#result-count').textContent = state.category === 'all' && !state.query
+    ? `顯示全部 ${list.length} 張`
+    : `符合條件：${list.length} 張${state.category === 'all' ? '' : `・${catLabel}`}`;
+
+  // 圖片載入 / 失敗狀態（離線時顯示提示而非破圖）
+  $$('#grid .thumb').forEach(thumb => {
+    const img = $('img', thumb);
+    if(img.complete && img.naturalWidth > 0){
+      thumb.classList.add('is-loaded');
+    }else{
+      img.addEventListener('load',  () => thumb.classList.add('is-loaded'),  { once:true });
+      img.addEventListener('error', () => thumb.classList.add('is-error'),   { once:true });
+    }
+  });
+}
+
+/* ==================================================================
+   4. 互動
+   ================================================================== */
+// manifest shortcuts 以 ?cat=dish 形式帶入初始分類
+const paramCat = new URLSearchParams(location.search).get('cat');
+if(paramCat && CATEGORIES.some(c => c.id === paramCat)) state.category = paramCat;
+
+buildChips();
+render();
+$('#stat-total').textContent = `共 ${ASSETS.length} 張素材`;
+
+$('#chips').addEventListener('click', e => {
+  const chip = e.target.closest('.chip');
+  if(!chip) return;
+  state.category = chip.dataset.cat;
+  $$('.chip').forEach(c => c.setAttribute('aria-pressed', String(c === chip)));
+  chip.scrollIntoView({ inline:'center', block:'nearest', behavior:'smooth' });
+  render();
+});
+
+const searchInput = $('#search');
+let searchTimer;
+searchInput.addEventListener('input', () => {
+  $('#search-clear').classList.toggle('is-visible', searchInput.value !== '');
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => { state.query = searchInput.value; render(); }, 160);
+});
+$('#search-clear').addEventListener('click', () => {
+  searchInput.value = ''; state.query = '';
+  $('#search-clear').classList.remove('is-visible');
+  searchInput.focus(); render();
+});
+$('#reset-btn').addEventListener('click', () => {
+  state.category = 'all'; state.query = '';
+  searchInput.value = '';
+  $('#search-clear').classList.remove('is-visible');
+  buildChips(); render();
+});
+
+// 卡片：複製 / 放大（事件委派，重新渲染後仍有效）
+$('#grid').addEventListener('click', async e => {
+  const card = e.target.closest('.card');
+  if(!card) return;
+  const item = ASSETS.find(a => a.id === card.dataset.id);
+  if(!item) return;
+
+  if(e.target.closest('[data-action="copy"]')){
+    toast(await copyText(item.url) ? '已複製圖片 URL 至剪貼簿' : '複製失敗，請長按網址手動複製');
+  }else if(e.target.closest('[data-action="zoom"]')){
+    openLightbox(item);
+  }
+});
+
+/* --- 燈箱 --- */
+const dlg = $('#lightbox');
+let current = null;
+
+function openLightbox(item){
+  current = item;
+  $('#lightbox-img').src = item.url;
+  $('#lightbox-img').alt = item.title;
+  $('#lightbox-title').textContent = item.title;
+  $('#lightbox-url').textContent = item.url;
+  $('#lightbox-open').href = item.url;
+  if(typeof dlg.showModal === 'function') dlg.showModal();
+  else window.open(item.url, '_blank', 'noopener');
+}
+$('#lightbox-close').addEventListener('click', () => dlg.close());
+$('#lightbox-copy').addEventListener('click', async () => {
+  if(!current) return;
+  toast(await copyText(current.url) ? '已複製圖片 URL 至剪貼簿' : '複製失敗，請長按網址手動複製');
+});
+dlg.addEventListener('click', e => {           // 點背景關閉
+  const box = dlg.getBoundingClientRect();
+  if(e.clientX < box.left || e.clientX > box.right ||
+     e.clientY < box.top  || e.clientY > box.bottom) dlg.close();
+});
+dlg.addEventListener('close', () => { $('#lightbox-img').removeAttribute('src'); current = null; });
+
+/* ==================================================================
+   5. PWA：Service Worker、安裝、連線狀態
+   ================================================================== */
+const netBadge = $('#net-badge');
+function syncNetwork(){
+  const online = navigator.onLine;
+  netBadge.dataset.state = online ? 'online' : 'offline';
+  $('.label', netBadge).textContent = online ? '已連線' : '離線模式';
+}
+addEventListener('online',  () => { syncNetwork(); toast('已恢復連線'); });
+addEventListener('offline', () => { syncNetwork(); toast('已離線，仍可瀏覽已快取內容'); });
+syncNetwork();
+
+// --- 註冊 Service Worker ---
+if('serviceWorker' in navigator){
+  addEventListener('load', async () => {
+    try{
+      const reg = await navigator.serviceWorker.register('sw.js', { scope:'./' });
+
+      // 偵測到新版本 → 顯示更新列
+      reg.addEventListener('updatefound', () => {
+        const sw = reg.installing;
+        if(!sw) return;
+        sw.addEventListener('statechange', () => {
+          if(sw.state === 'installed' && navigator.serviceWorker.controller){
+            $('#update-bar').classList.add('is-visible');
+            $('#update-btn').onclick = () => {
+              sw.postMessage({ type:'SKIP_WAITING' });
+            };
+          }
+        });
+      });
+
+      let refreshing = false;
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if(refreshing) return;
+        refreshing = true;
+        location.reload();
+      });
+    }catch(err){
+      console.warn('[PWA] Service Worker 註冊失敗：', err);
+    }
+  });
+}
+
+// --- 安裝流程（Chrome / Edge / Android）---
+let deferredPrompt = null;
+const installBtn = $('#install-btn');
+
+addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  installBtn.classList.add('is-ready');
+});
+
+installBtn.addEventListener('click', async () => {
+  if(!deferredPrompt) return;
+  deferredPrompt.prompt();
+  const { outcome } = await deferredPrompt.userChoice;
+  deferredPrompt = null;
+  installBtn.classList.remove('is-ready');
+  if(outcome === 'accepted') toast('安裝中，稍候即可從主畫面開啟');
+});
+
+addEventListener('appinstalled', () => {
+  installBtn.classList.remove('is-ready');
+  toast('安裝完成！已加入主畫面');
+});
+
+// --- iOS 沒有 beforeinstallprompt，改以文字引導 ---
+(function iosInstallHint(){
+  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const standalone = matchMedia('(display-mode: standalone)').matches ||
+    navigator.standalone === true;
+  if(isIOS && !standalone && localStorage.getItem('iosHintDismissed') !== '1'){
+    $('#ios-hint').classList.add('is-visible');
+  }
+  $('#ios-hint-close').addEventListener('click', () => {
+    $('#ios-hint').classList.remove('is-visible');
+    try{ localStorage.setItem('iosHintDismissed','1'); }catch{}
+  });
+})();
+</script>
+</body>
+</html>
